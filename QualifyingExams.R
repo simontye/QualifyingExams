@@ -27,16 +27,22 @@ concept <- function(notes, question) {
   answer  <- print(concept, max.levels = 0)
 }
 
+# Definition function
+definition <- function(notes, question) {
+  definition <- notes[question, 5]
+  answer     <- print(definition, max.levels = 0)
+}
+
 # Citation function
-citation <- function(notes, question) {
+citations <- function(notes, question) {
   citation <- notes[question, 3]
   answer   <- print(citation, max.levels = 0)
 }
 
-# Citation function
-definition <- function(notes, question) {
-  definition <- notes[question, 4]
-  answer   <- print(definition, max.levels = 0)
+# Organism function
+organisms <- function(notes, question) {
+  organism <- notes[question, 4]
+  answer   <- print(organism, max.levels = 0)
 }
 
 ########################################################
@@ -51,6 +57,9 @@ concept(notes, question)
 definition(notes, question)
 
 # Give citations
-citation(notes, question)
+citations(notes, question)
+
+# Give organisms
+organisms(notes, question)
 
 ########################################################
