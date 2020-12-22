@@ -13,13 +13,11 @@ setwd("/Users/simontye/Documents/Research/PhD/QualifyingExams/")
 # Load files
 notes <- read.csv(file = "QualifyingExams.csv", head = TRUE, sep = ",")
 
-# Save number of rows
-rows <- nrow(notes)
-
 ########################################################
 
 # Question function
-selection <- function(n) {
+selection <- function(notes, n) {
+  rows <- nrow(notes)
   sample(1:rows, 1, replace = FALSE)
 }
 
@@ -29,22 +27,22 @@ concept <- function(notes, question) {
   answer  <- print(concept, max.levels = 0)
 }
 
-# Definition function
-definition <- function(notes, question) {
-  definition  <- notes[question, 3]
-  answer      <- print(definition, max.levels = 0)
+# Citation function
+citation <- function(notes, question) {
+  citation <- notes[question, 3]
+  answer   <- print(citation, max.levels = 0)
 }
 
 # Citation function
-citation <- function(notes, question) {
-  citation <- notes[question, 4]
-  answer   <- print(citation, max.levels = 0)
+definition <- function(notes, question) {
+  definition <- notes[question, 4]
+  answer   <- print(definition, max.levels = 0)
 }
 
 ########################################################
 
 # Pick question
-question <- as.numeric(selection())
+question <- as.numeric(selection(notes))
 
 # Ask question
 concept(notes, question)
@@ -52,5 +50,7 @@ concept(notes, question)
 # Give definition
 definition(notes, question)
 
-# Give citation
+# Give citations
 citation(notes, question)
+
+########################################################
